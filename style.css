@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+#bgID {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    --hue: 0;
+
+    background: linear-gradient(135deg, #667eea, #764ba2, #ff6ec4, #764ba2, #667eea);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+
+    filter: hue-rotate(calc(var(--hue) * 1deg));
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body > div:not(#bgID) {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+#quoteID {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#authorID {
+    font-size: 1rem;
+    color: #764ba2;
+    margin-bottom: 25px;
+}
+
+button {
+    background-color: #764ba2;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #5d3a82;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
